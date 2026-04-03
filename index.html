@@ -858,48 +858,65 @@ footer .f-right {
 .thon-float-bg span {
   position: absolute;
   font-size: 1rem;
-  opacity: 0.28;
+  opacity: 0.40;
   animation: floatDiamond linear infinite;
 }
 
-.thon-float-bg span:nth-child(1)  { left: 6%;  top: 85%; animation-duration: 18s; animation-delay: 0s; }
-.thon-float-bg span:nth-child(2)  { left: 14%; top: 70%; animation-duration: 24s; animation-delay: 2s; }
-.thon-float-bg span:nth-child(3)  { left: 22%; top: 92%; animation-duration: 21s; animation-delay: 5s; }
-.thon-float-bg span:nth-child(4)  { left: 31%; top: 78%; animation-duration: 19s; animation-delay: 1s; }
-.thon-float-bg span:nth-child(5)  { left: 40%; top: 88%; animation-duration: 26s; animation-delay: 3s; }
-.thon-float-bg span:nth-child(6)  { left: 49%; top: 82%; animation-duration: 20s; animation-delay: 6s; }
-.thon-float-bg span:nth-child(7)  { left: 58%; top: 90%; animation-duration: 23s; animation-delay: 4s; }
-.thon-float-bg span:nth-child(8)  { left: 67%; top: 76%; animation-duration: 18s; animation-delay: 7s; }
-.thon-float-bg span:nth-child(9)  { left: 76%; top: 94%; animation-duration: 25s; animation-delay: 2s; }
-.thon-float-bg span:nth-child(10) { left: 84%; top: 80%; animation-duration: 22s; animation-delay: 5s; }
-.thon-float-bg span:nth-child(11) { left: 90%; top: 86%; animation-duration: 19s; animation-delay: 1s; }
-.thon-float-bg span:nth-child(12) { left: 96%; top: 74%; animation-duration: 27s; animation-delay: 4s; }
+.thon-float-bg span:nth-child(1)  { left: 4%;  top: 88%; animation-duration: 18s; animation-delay: 0s; }
+.thon-float-bg span:nth-child(2)  { left: 9%;  top: 76%; animation-duration: 22s; animation-delay: 2s; }
+.thon-float-bg span:nth-child(3)  { left: 14%; top: 92%; animation-duration: 20s; animation-delay: 4s; }
+.thon-float-bg span:nth-child(4)  { left: 19%; top: 68%; animation-duration: 24s; animation-delay: 1s; }
+.thon-float-bg span:nth-child(5)  { left: 24%; top: 84%; animation-duration: 19s; animation-delay: 5s; }
+.thon-float-bg span:nth-child(6)  { left: 29%; top: 73%; animation-duration: 21s; animation-delay: 3s; }
+.thon-float-bg span:nth-child(7)  { left: 34%; top: 90%; animation-duration: 23s; animation-delay: 6s; }
+.thon-float-bg span:nth-child(8)  { left: 39%; top: 79%; animation-duration: 17s; animation-delay: 2s; }
+.thon-float-bg span:nth-child(9)  { left: 44%; top: 87%; animation-duration: 25s; animation-delay: 7s; }
+.thon-float-bg span:nth-child(10) { left: 49%; top: 71%; animation-duration: 20s; animation-delay: 1s; }
+.thon-float-bg span:nth-child(11) { left: 54%; top: 95%; animation-duration: 26s; animation-delay: 4s; }
+.thon-float-bg span:nth-child(12) { left: 59%; top: 77%; animation-duration: 18s; animation-delay: 2s; }
+.thon-float-bg span:nth-child(13) { left: 64%; top: 89%; animation-duration: 22s; animation-delay: 5s; }
+.thon-float-bg span:nth-child(14) { left: 69%; top: 69%; animation-duration: 19s; animation-delay: 3s; }
+.thon-float-bg span:nth-child(15) { left: 74%; top: 93%; animation-duration: 24s; animation-delay: 6s; }
+.thon-float-bg span:nth-child(16) { left: 79%; top: 75%; animation-duration: 21s; animation-delay: 1s; }
+.thon-float-bg span:nth-child(17) { left: 84%; top: 86%; animation-duration: 23s; animation-delay: 4s; }
+.thon-float-bg span:nth-child(18) { left: 89%; top: 72%; animation-duration: 18s; animation-delay: 2s; }
+.thon-float-bg span:nth-child(19) { left: 94%; top: 91%; animation-duration: 25s; animation-delay: 7s; }
+.thon-float-bg span:nth-child(20) { left: 12%; top: 58%; animation-duration: 20s; animation-delay: 3s; }
+.thon-float-bg span:nth-child(21) { left: 31%; top: 55%; animation-duration: 26s; animation-delay: 5s; }
+.thon-float-bg span:nth-child(22) { left: 50%; top: 60%; animation-duration: 19s; animation-delay: 1s; }
+.thon-float-bg span:nth-child(23) { left: 68%; top: 57%; animation-duration: 22s; animation-delay: 4s; }
+.thon-float-bg span:nth-child(24) { left: 82%; top: 53%; animation-duration: 24s; animation-delay: 6s; }
+.thon-float-bg span:nth-child(25) { left: 96%; top: 61%; animation-duration: 18s; animation-delay: 2s; }
 
 @keyframes floatDiamond {
   0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
     opacity: 0;
   }
-  10% {
-    opacity: 0.14;
+  15% {
+    opacity: 0.16;
   }
   50% {
-    transform: translateY(-40vh) translateX(10px) rotate(90deg);
-    opacity: 0.18;
+    transform: translateY(-30vh) translateX(12px) scale(1.05) rotate(90deg);
+    opacity: 0.2;
   }
   100% {
-    transform: translateY(-85vh) translateX(-8px) rotate(180deg);
+    transform: translateY(-70vh) translateX(-10px) scale(0.95) rotate(180deg);
     opacity: 0;
   }
 }
-
 .thon-shell,
-.thon-banner,
-.thon-tabs,
 .thon-detail,
 .detail-actions {
   position: relative;
   z-index: 1;
+}
+
+.thon-banner,
+.thon-tabs {
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 @media (max-width: 700px) {
   .thon-banner {
@@ -1224,6 +1241,12 @@ footer .f-right {
 
 <section id="thon-page" class="project-detail hidden">
   <div class="thon-float-bg" aria-hidden="true">
+  <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
+  <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
+  <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
+  <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
+  <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
+</div>
     <span>💠</span>
     <span>💠</span>
     <span>💠</span>
