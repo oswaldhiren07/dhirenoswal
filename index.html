@@ -523,15 +523,20 @@ footer .f-left, footer .f-right {
   border: 1px solid var(--border);
   background: var(--off-white);
 }
-.thon-gallery img { width: 100%; height: 360px; object-fit: cover; display: block; }
 .thon-float-bg {
-  position: absolute; inset: 0;
-  pointer-events: none; z-index: 0; overflow: hidden;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
 }
 .thon-float-bg span {
-  position: absolute; font-size: 1rem; opacity: 0.40;
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0;
   animation: floatDiamond linear infinite;
 }
+
 .thon-float-bg span:nth-child(1)  { left: 4%;  top: 88%; animation-duration: 18s; animation-delay: 0s; }
 .thon-float-bg span:nth-child(2)  { left: 9%;  top: 76%; animation-duration: 22s; animation-delay: 2s; }
 .thon-float-bg span:nth-child(3)  { left: 14%; top: 92%; animation-duration: 20s; animation-delay: 4s; }
@@ -558,10 +563,10 @@ footer .f-left, footer .f-right {
 .thon-float-bg span:nth-child(24) { left: 82%; top: 53%; animation-duration: 24s; animation-delay: 6s; }
 .thon-float-bg span:nth-child(25) { left: 96%; top: 61%; animation-duration: 18s; animation-delay: 2s; }
 @keyframes floatDiamond {
-  0%   { transform: translateY(0) translateX(0) scale(1) rotate(0deg); opacity: 0; }
-  15%  { opacity: 0.16; }
-  50%  { transform: translateY(-30vh) translateX(12px) scale(1.05) rotate(90deg); opacity: 0.2; }
-  100% { transform: translateY(-70vh) translateX(-10px) scale(0.95) rotate(180deg); opacity: 0; }
+  0%   { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+  10%  { opacity: 0.22; }
+  90%  { opacity: 0.18; }
+  100% { transform: translateY(-110vh) rotate(200deg) scale(1.1); opacity: 0; }
 }
 .thon-shell, .thon-detail, .detail-actions { position: relative; z-index: 1; }
 .thon-banner, .thon-tabs {
@@ -855,7 +860,7 @@ footer .f-left, footer .f-right {
 
 <!-- THON PAGE -->
 <section id="thon-page" class="project-detail hidden">
-  <div class="thon-float-bg" aria-hidden="true">
+  <div class="thon-float-bg" id="thonFloatBg" aria-hidden="true"></div>
     <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
     <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
     <span>💠</span><span>💠</span><span>💠</span><span>💠</span><span>💠</span>
@@ -929,6 +934,22 @@ footer .f-left, footer .f-right {
 </section>
 
 <script>
+    (function() {
+  const bg = document.getElementById('thonFloatBg');
+  if (!bg) return;
+  const count = 60;
+  for (let i = 0; i < count; i++) {
+    const span = document.createElement('span');
+    span.textContent = '💠';
+    span.style.left = (Math.random() * 100) + 'vw';
+    span.style.top = (Math.random() * 120) + 'vh';  // spread across full page + a bit below
+    span.style.animationDuration = (14 + Math.random() * 18) + 's';
+    span.style.animationDelay = (Math.random() * 20) + 's';
+    span.style.fontSize = (0.7 + Math.random() * 1.1) + 'rem';
+    bg.appendChild(span);
+  }
+})();
+
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
   });
@@ -1047,6 +1068,7 @@ footer .f-left, footer .f-right {
     if (thon2026Detail) thon2026Detail.classList.add('hidden');
     stopThonGallery();
     window.scrollTo(0, 0);
+    document.getElementById('thonFloatBg').style.display = 'block';
   }
 
   function closeThon() {
@@ -1054,6 +1076,7 @@ footer .f-left, footer .f-right {
     mainSite.classList.remove('hidden');
     stopThonGallery();
     document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('thonFloatBg').style.display = 'none';cl
   }
 
   function loadThon(year) {
