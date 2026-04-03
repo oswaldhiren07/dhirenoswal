@@ -58,11 +58,31 @@ body {
   font-size: 1rem;
   cursor: pointer;
   margin-left: 1rem;
+
   transition:
-    background-color 2s ease,
-    color 2s ease,
-    border-color 2s ease,
-    transform 1.8s ease;
+    transform 2.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 2.2s ease,
+    background-color 2.2s ease,
+    border-color 2.2s ease;
+}
+/* 🔥 PRESS ANIMATION */
+.theme-toggle.animate {
+  animation: togglePop 0.8s ease;
+}
+
+@keyframes togglePop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  40% {
+    transform: scale(1.25) rotate(120deg);
+  }
+  70% {
+    transform: scale(1.1) rotate(260deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
 }
 
 .theme-toggle:hover {
@@ -648,7 +668,7 @@ body.dark-mode {
   --border: #2a2f38;
 }
 body.dark-mode .theme-toggle {
-  transform: rotate(360deg);
+  transform: rotate(540deg);
 }
 body.dark-mode nav {
   background: rgba(15, 17, 21, 0.92);
@@ -1196,11 +1216,19 @@ const themeToggle = document.getElementById('themeToggle');
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
 
+  // change icon
   if (document.body.classList.contains('dark-mode')) {
     themeToggle.textContent = '☀️';
   } else {
     themeToggle.textContent = '🌙';
   }
+
+  // trigger animation
+  themeToggle.classList.add('animate');
+
+  setTimeout(() => {
+    themeToggle.classList.remove('animate');
+  }, 800);
 });
 </script>
 </body>
