@@ -807,7 +807,31 @@ footer .f-right {
         </div>
       </div>
     </div>
+
+    <div class="exp-item fade-up">
+  <div class="exp-left">
+    <div class="exp-date">THON 2026</div>
+    <div class="exp-company">Penn State THON</div>
+    <div class="exp-loc">University Park, PA</div>
+  </div>
+
+  <div class="exp-right">
+    <div class="exp-role">Second-in-Command (Rules & Regulations)</div>
+
+    <ul class="exp-bullets">
+      <li>Led operations and compliance for THON Weekend at the Bryce Jordan Center.</li>
+      <li>Managed teams, conducted security briefings, and supported large-scale event execution.</li>
+    </ul>
+
+    <!-- CLICK BUTTON -->
+    <button class="detail-btn" onclick="openThonPage()" style="margin-top:1rem;">
+      View Full THON Experience →
+    </button>
+  </div>
+</div>
   </section>
+
+  
 
   <!-- PROJECTS -->
   <section id="projects">
@@ -847,6 +871,30 @@ footer .f-right {
         <span class="proj-tag">Leadership / Education</span>
       </button>
     </div>
+
+    <section id="thon-page" class="project-detail hidden">
+  <div class="section-header">
+    <span class="section-num">Leadership</span>
+    <h2 class="section-title">THON Journey</h2>
+  </div>
+
+  <div class="detail-box">
+
+    <div style="display:flex; gap:1rem; margin-bottom:2rem;">
+      <button class="detail-btn" onclick="loadThon('2026')">THON 2026</button>
+      <button class="detail-btn" onclick="loadThon('2027')">THON 2027</button>
+      <button class="detail-btn" onclick="loadThon('2028')">THON 2028</button>
+    </div>
+
+    <p class="detail-sub" id="thon-subtitle"></p>
+    <p class="detail-body" id="thon-body"></p>
+
+    <div class="detail-actions">
+      <button class="detail-btn" onclick="closeThon()">← Back</button>
+    </div>
+
+  </div>
+</section>
   </section>
 
   <!-- SKILLS -->
@@ -1042,6 +1090,59 @@ footer .f-right {
       }
     });
   });
+  // THON PAGE LOGIC
+const thonPage = document.getElementById('thon-page');
+const thonSubtitle = document.getElementById('thon-subtitle');
+const thonBody = document.getElementById('thon-body');
+
+function openThonPage() {
+  mainSite.classList.add('hidden');
+  detailSection.classList.add('hidden'); // hide project page if open
+  thonPage.classList.remove('hidden');
+  loadThon('2026');
+  window.scrollTo(0, 0);
+}
+
+function closeThon() {
+  thonPage.classList.add('hidden');
+  mainSite.classList.remove('hidden');
+}
+
+function loadThon(year) {
+  if (year === '2026') {
+    thonSubtitle.textContent = "THON 2026 — Second-in-Command";
+
+    thonBody.textContent = `
+Served as Second-in-Command for the Rules & Regulations Committee during THON 2026.
+
+Oversaw policy enforcement and operations inside the Bryce Jordan Center, working closely with captains and committee members to ensure everything ran smoothly.
+
+Led security briefings, trained members in advance, and supported real-time operations including portal closures, metal detectors, and pass sweeps.
+
+Acted as a key link between leadership and committee members during high-pressure situations.
+    `;
+  }
+
+  if (year === '2027') {
+    thonSubtitle.textContent = "THON 2027 — Planned Growth";
+
+    thonBody.textContent = `
+Plan to take on a higher leadership role within THON, managing larger teams and contributing more directly to event operations and logistics.
+
+Focus will be on improving coordination, efficiency, and execution at scale.
+    `;
+  }
+
+  if (year === '2028') {
+    thonSubtitle.textContent = "THON 2028 — Long-Term Vision";
+
+    thonBody.textContent = `
+Aim to step into a senior leadership position within THON, helping oversee major parts of event execution and contributing significantly to fundraising and organizational impact.
+
+Goal is to lead with both operational strength and strategic thinking.
+    `;
+  }
+}
 </script>
 </body>
 </html>
