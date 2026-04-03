@@ -35,7 +35,17 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
-
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
 /* NAV */
 nav {
   position: fixed;
@@ -605,6 +615,15 @@ footer .f-left, footer .f-right {
   .thon-gallery img { height: 240px; }
 }
 @media (max-width: 600px) { .nav-links { display: none; } }
+body.dark-mode {
+  --white: #0f1115;
+  --off-white: #171a21;
+  --ink: #f5f5f5;
+  --mid: #b2b2b2;
+  --light: #7f7f7f;
+  --accent: #e06a4b;
+  --border: #2a2f38;
+}
 </style>
 </head>
 
@@ -619,6 +638,7 @@ footer .f-left, footer .f-right {
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button id="themeToggle" class="theme-toggle">☾</button>
 </nav>
 <div id="main-site">
 
@@ -1140,6 +1160,11 @@ footer .f-left, footer .f-right {
     stopThonGallery();
     document.getElementById('thonFloatBg').style.display = 'none';
   }
+});
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
 });
 </script>
 </body>
