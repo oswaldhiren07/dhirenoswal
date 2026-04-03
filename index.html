@@ -205,6 +205,12 @@ section {
 .about-meta-row .val { color: var(--ink); }
 
 /* EXPERIENCE */
+.exp-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
 .exp-item {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -664,6 +670,13 @@ footer .f-left, footer .f-right {
     <div class="exp-list">
       <div class="exp-item fade-up">
         <div class="exp-left">
+            <div class="exp-left">
+            <img src="images/companylogoo.png" class="exp-logo" alt="OD Hydroponics Logo">
+
+  <div class="exp-date">Oct 2022 – Jun 2025</div>
+  <div class="exp-company">OD.Hydroponics</div>
+  <div class="exp-loc">Ludhiana, India</div>
+</div>
           <div class="exp-date">Oct 2022 – Jun 2025</div>
           <div class="exp-company">OD.Hydroponics</div>
           <div class="exp-loc">Ludhiana, India</div>
@@ -972,6 +985,7 @@ footer .f-left, footer .f-right {
     banner: 'images/thon-banner.jpg',
     logo2026: 'images/thon-2026-logo.png',
     group2026: 'images/thon-group-2026.jpg'
+
   };
 
   const thonBannerImg = document.getElementById('thonBannerImg');
