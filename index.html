@@ -77,10 +77,11 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.4rem 4rem;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.68);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.4s ease;
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 nav.scrolled { border-bottom-color: var(--border); }
 .nav-logo {
@@ -648,6 +649,10 @@ body.dark-mode {
 }
 body.dark-mode .theme-toggle {
   transform: rotate(360deg);
+}
+body.dark-mode nav {
+  background: rgba(15, 17, 21, 0.92);
+  border-bottom-color: var(--border);
 }
 </style>
 </head>
