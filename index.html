@@ -681,17 +681,20 @@ footer .f-right {
 
 <body>
 
+<nav id="nav">
+  <a class="nav-logo" href="#splash">D.O.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
 <div id="main-site">
-  <nav id="nav">
-    <a class="nav-logo" href="#splash">D.O.</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  ...
+</div>
 
   <!-- SPLASH -->
 <div id="splash">
@@ -1005,6 +1008,11 @@ footer .f-right {
     }
   };
 
+  function showMainSite() {
+    detailSection.classList.add('hidden');
+    mainSite.classList.remove('hidden');
+  }
+
   projectButtons.forEach(button => {
     button.addEventListener('click', () => {
       const page = button.dataset.page;
@@ -1021,9 +1029,25 @@ footer .f-right {
   });
 
   backButton.addEventListener('click', () => {
-    detailSection.classList.add('hidden');
-    mainSite.classList.remove('hidden');
+    showMainSite();
     document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Keep nav working even when on project page
+  document.querySelectorAll('.nav-links a, .nav-logo').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = link.getAttribute('href');
+
+      if (target && target.startsWith('#')) {
+        e.preventDefault();
+        showMainSite();
+
+        const el = document.querySelector(target);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
   });
 </script>
 </body>
