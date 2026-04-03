@@ -564,9 +564,9 @@ footer .f-left, footer .f-right {
 .thon-float-bg span:nth-child(25) { left: 96%; top: 61%; animation-duration: 18s; animation-delay: 2s; }
 @keyframes floatDiamond {
   0%   { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
-  10%  { opacity: 0.22; }
-  90%  { opacity: 0.18; }
-  100% { transform: translateY(-110vh) rotate(200deg) scale(1.1); opacity: 0; }
+  10%  { opacity: 0.7; }   
+  90%  { opacity: 0.55; }  
+  100% { transform: translateY(-130vh) rotate(200deg) scale(1.1); opacity: 0; }
 }
 .thon-shell, .thon-detail, .detail-actions { position: relative; z-index: 1; }
 .thon-banner, .thon-tabs {
@@ -937,14 +937,13 @@ footer .f-left, footer .f-right {
     (function() {
   const bg = document.getElementById('thonFloatBg');
   if (!bg) return;
-  const count = 60;
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < 60; i++) {
     const span = document.createElement('span');
     span.textContent = '💠';
     span.style.left = (Math.random() * 100) + 'vw';
-    span.style.top = (Math.random() * 120) + 'vh';  // spread across full page + a bit below
+    span.style.top = (100 + Math.random() * 20) + 'vh';
     span.style.animationDuration = (14 + Math.random() * 18) + 's';
-    span.style.animationDelay = (Math.random() * 20) + 's';
+    span.style.animationDelay = '-' + (Math.random() * 30) + 's';
     span.style.fontSize = (0.7 + Math.random() * 1.1) + 'rem';
     bg.appendChild(span);
   }
