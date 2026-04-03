@@ -722,6 +722,54 @@ footer .f-right {
 @media (max-width: 600px) {
   .nav-links { display: none; }
 }
+
+.thon-shell {
+  min-height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.thon-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.thon-tab {
+  min-width: 220px;
+  text-align: center;
+}
+
+.thon-tab.active {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.thon-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.thon-note {
+  margin-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .thon-tab {
+    min-width: 100%;
+  }
+}
+
 </style>
 </head>
 
