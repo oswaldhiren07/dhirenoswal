@@ -693,6 +693,8 @@ footer .f-right {
 </nav>
 
 <div id="main-site">
+
+<div id="main-site">
   ...
 </div>
 
@@ -966,22 +968,18 @@ footer .f-right {
 </section>
 
 <script>
-  // Nav scroll
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // Scroll reveal
   const els = document.querySelectorAll('.fade-up');
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
-
   els.forEach(el => obs.observe(el));
 
-  // Project full-page view
   const projectButtons = document.querySelectorAll('.proj-button');
   const mainSite = document.getElementById('main-site');
   const detailSection = document.getElementById('project-detail');
@@ -994,17 +992,17 @@ footer .f-right {
     arduino: {
       title: 'Arduino / IoT',
       subtitle: 'Hydroponics Systems Assembly',
-      body: `Designed and installed an Arduino-based monitoring system to support hydroponic farming operations through real-time sensor integration. This work focused on tracking variables such as pH and salinity, improving efficiency and enabling more reliable water-quality monitoring. You can expand this section later with sensor types, circuit diagrams, automation logic, testing workflow, and photos of the final setup.`
+      body: `Designed and installed an Arduino-based monitoring system to support hydroponic farming operations through real-time sensor integration. This work focused on tracking variables such as pH and salinity, improving efficiency and enabling more reliable water-quality monitoring.`
     },
     cad: {
       title: 'CAD / 3D Print',
       subtitle: 'Fusion 360 CAD Design',
-      body: `Produced multiple 3D models and mechanical designs using Fusion 360, then translated those digital concepts into physical prototypes through 3D printing. This project area highlights design thinking, modeling precision, iteration, and fabrication. You can expand it later with renders, dimensions, assembly views, prototype photos, and examples of how each design solved a practical problem.`
+      body: `Produced multiple 3D models and mechanical designs using Fusion 360, then translated those digital concepts into physical prototypes through 3D printing.`
     },
     leadership: {
       title: 'Leadership / Education',
       subtitle: 'STEM Club — Founder & President',
-      body: `Founded and led a school-level STEM club focused on increasing student engagement in science, engineering, and technology. Organized and facilitated biweekly activities, helping create a collaborative learning environment for peers. You can expand this section later with club size, event examples, mentoring efforts, workshop topics, and measurable impact on participation and student learning.`
+      body: `Founded and led a school-level STEM club focused on increasing student engagement in science, engineering, and technology through biweekly activities and peer learning.`
     }
   };
 
@@ -1033,19 +1031,14 @@ footer .f-right {
     document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Keep nav working even when on project page
   document.querySelectorAll('.nav-links a, .nav-logo').forEach(link => {
     link.addEventListener('click', (e) => {
       const target = link.getAttribute('href');
-
       if (target && target.startsWith('#')) {
         e.preventDefault();
         showMainSite();
-
         const el = document.querySelector(target);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
