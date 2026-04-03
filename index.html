@@ -1066,29 +1066,37 @@ footer .f-left, footer .f-right {
   }
 
   function openThonPage() {
-    if (!thonPage) return;
-    mainSite.classList.add('hidden');
-    detailSection.classList.add('hidden');
-    thonPage.classList.remove('hidden');
-    if (thonBannerImg) thonBannerImg.src = thonAssets.banner;
-    if (thon2026Logo) thon2026Logo.src = thonAssets.logo2026;
-    if (thon2026GroupImg) thon2026GroupImg.src = thonAssets.group2026;
-    document.getElementById('thon2026Btn').classList.remove('active');
-    document.getElementById('thon2027Btn').classList.remove('active');
-    document.getElementById('thon2028Btn').classList.remove('active');
-    if (thon2026Detail) thon2026Detail.classList.add('hidden');
-    stopThonGallery();
-    window.scrollTo(0, 0);
-    document.getElementById('thonFloatBg').style.display = 'block';
-  }
+  if (!thonPage) return;
+  mainSite.classList.add('hidden');
+  detailSection.classList.add('hidden');
+  thonPage.classList.remove('hidden');
+
+  history.pushState({ page: 'thon' }, '', '#thon');
+
+  if (thonBannerImg) thonBannerImg.src = thonAssets.banner;
+  if (thon2026Logo) thon2026Logo.src = thonAssets.logo2026;
+  if (thon2026GroupImg) thon2026GroupImg.src = thonAssets.group2026;
+  document.getElementById('thon2026Btn').classList.remove('active');
+  document.getElementById('thon2027Btn').classList.remove('active');
+  document.getElementById('thon2028Btn').classList.remove('active');
+  if (thon2026Detail) thon2026Detail.classList.add('hidden');
+  stopThonGallery();
+  window.scrollTo(0, 0);
+  document.getElementById('thonFloatBg').style.display = 'block';
+}
 
   function closeThon() {
-    if (thonPage) thonPage.classList.add('hidden');
-    mainSite.classList.remove('hidden');
-    stopThonGallery();
-    document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
-    document.getElementById('thonFloatBg').style.display = 'none';
+  if (location.hash === '#thon') {
+    history.back();
+    return;
   }
+
+  if (thonPage) thonPage.classList.add('hidden');
+  mainSite.classList.remove('hidden');
+  stopThonGallery();
+  document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('thonFloatBg').style.display = 'none';
+}
 
   function loadThon(year) {
     const btn2026 = document.getElementById('thon2026Btn');
@@ -1118,6 +1126,21 @@ footer .f-left, footer .f-right {
       setTimeout(() => popup2028.classList.remove('show'), 1400);
     }
   }
+  window.addEventListener('popstate', () => {
+  if (location.hash === '#thon') {
+    mainSite.classList.add('hidden');
+    detailSection.classList.add('hidden');
+    if (thonPage) thonPage.classList.remove('hidden');
+    document.getElementById('thonFloatBg').style.display = 'block';
+    window.scrollTo(0, 0);
+  } else {
+    if (thonPage) thonPage.classList.add('hidden');
+    detailSection.classList.add('hidden');
+    mainSite.classList.remove('hidden');
+    stopThonGallery();
+    document.getElementById('thonFloatBg').style.display = 'none';
+  }
+});
 </script>
 </body>
 </html>
