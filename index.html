@@ -9,6 +9,52 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+.thon-shell {
+  min-height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.thon-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.thon-tab {
+  min-width: 220px;
+  text-align: center;
+}
+
+.thon-tab.active {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.thon-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.thon-note {
+  margin-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .thon-tab {
+    min-width: 100%;
+  }
+}
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1011,6 +1057,24 @@ footer .f-right {
   </div>
 </section>
 <section id="thon-page" class="project-detail hidden">
+  <div class="detail-box thon-shell">
+    <div class="thon-tabs">
+      <button class="detail-btn thon-tab active" id="thon2026Btn" onclick="loadThon('2026')">THON 2026</button>
+      <button class="detail-btn thon-tab" id="thon2027Btn" onclick="loadThon('2027')">THON 2027</button>
+      <button class="detail-btn thon-tab" id="thon2028Btn" onclick="loadThon('2028')">THON 2028</button>
+    </div>
+
+    <div class="thon-card">
+      <p class="detail-sub" id="thon-subtitle"></p>
+      <p class="detail-body" id="thon-body"></p>
+      <p class="thon-note" id="thon-note"></p>
+    </div>
+
+    <div class="detail-actions">
+      <button class="detail-btn" onclick="closeThon()">← Back</button>
+    </div>
+  </div>
+</section>
   <div class="section-header">
     <span class="section-num">Leadership</span>
     <h2 class="section-title">THON Journey</h2>
@@ -1134,24 +1198,40 @@ footer .f-right {
     goToSection('#experience');
   }
 
-  function loadThon(year) {
-    if (!thonSubtitle || !thonBody) return;
+ function loadThon(year) {
+  if (!thonSubtitle || !thonBody) return;
 
-    if (year === '2026') {
-      thonSubtitle.textContent = "THON 2026 — Second-in-Command";
-      thonBody.textContent = `Served as Second-in-Command for the Rules & Regulations Committee during THON 2026. Oversaw policy enforcement and operations inside the Bryce Jordan Center, worked closely with captains and committee members, led security briefings, and supported portal closures, metal detectors, and pass sweeps.`;
-    }
+  const btn2026 = document.getElementById('thon2026Btn');
+  const btn2027 = document.getElementById('thon2027Btn');
+  const btn2028 = document.getElementById('thon2028Btn');
+  const thonNote = document.getElementById('thon-note');
 
-    if (year === '2027') {
-      thonSubtitle.textContent = "THON 2027 — Planned Growth";
-      thonBody.textContent = `Plan to take on a higher leadership role within THON, manage larger teams, and contribute more directly to event operations and logistics.`;
-    }
+  [btn2026, btn2027, btn2028].forEach(btn => btn.classList.remove('active'));
+  if (thonNote) thonNote.textContent = '';
 
-    if (year === '2028') {
-      thonSubtitle.textContent = "THON 2028 — Long-Term Vision";
-      thonBody.textContent = `Aim to step into a senior leadership position within THON, help oversee major parts of event execution, and contribute significantly to fundraising and organizational impact.`;
-    }
+  if (year === '2026') {
+    btn2026.classList.add('active');
+    thonSubtitle.textContent = 'THON 2026 — Second-in-Command';
+    thonBody.textContent = `Served as Second-in-Command for the Rules & Regulations Committee during THON 2026. Oversaw policy enforcement and operations inside the Bryce Jordan Center, worked closely with captains and committee members, led security briefings, and supported portal closures, metal detectors, and pass sweeps.`;
+    return;
   }
+
+  if (year === '2027') {
+    btn2027.classList.add('active');
+    thonSubtitle.textContent = 'THON 2027';
+    thonBody.textContent = '';
+    if (thonNote) thonNote.textContent = 'For the future!';
+    return;
+  }
+
+  if (year === '2028') {
+    btn2028.classList.add('active');
+    thonSubtitle.textContent = 'THON 2028';
+    thonBody.textContent = '';
+    if (thonNote) thonNote.textContent = 'For the future!';
+    return;
+  }
+}
 </script>
 </body>
 </html>
