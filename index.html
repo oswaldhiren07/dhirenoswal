@@ -694,10 +694,6 @@ footer .f-right {
 
 <div id="main-site">
 
-<div id="main-site">
-  ...
-</div>
-
   <!-- SPLASH -->
 <div id="splash">
   <div class="splash-frame">
@@ -1014,7 +1010,27 @@ footer .f-right {
     </div>
   </div>
 </section>
+<section id="thon-page" class="project-detail hidden">
+  <div class="section-header">
+    <span class="section-num">Leadership</span>
+    <h2 class="section-title">THON Journey</h2>
+  </div>
 
+  <div class="detail-box">
+    <div style="display:flex; gap:1rem; margin-bottom:2rem; flex-wrap: wrap;">
+      <button class="detail-btn" onclick="loadThon('2026')">THON 2026</button>
+      <button class="detail-btn" onclick="loadThon('2027')">THON 2027</button>
+      <button class="detail-btn" onclick="loadThon('2028')">THON 2028</button>
+    </div>
+
+    <p class="detail-sub" id="thon-subtitle"></p>
+    <p class="detail-body" id="thon-body"></p>
+
+    <div class="detail-actions">
+      <button class="detail-btn" onclick="closeThon()">← Back</button>
+    </div>
+  </div>
+</section>
 <script>
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
